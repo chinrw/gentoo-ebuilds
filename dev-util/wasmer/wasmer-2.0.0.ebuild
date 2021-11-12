@@ -308,7 +308,7 @@ DESCRIPTION="universal web assembly runtime"
 HOMEPAGE="https://wasmer.io"
 LICENSE="MIT"
 SLOT="0"
-IUSE="+cranelift llvm singlepass ${ALL_LLVM_TARGETS[*]}"
+IUSE="+cranelift engine-dylib llvm singlepass ${ALL_LLVM_TARGETS[*]}"
 
 BDEPEND="
 	>=virtual/rust-1.53.0
@@ -331,7 +331,8 @@ cargo_do() {
 	shift
 	RUSTFLAGS="$RUSTFLAGS" \
 		cargo_$cmd \
-		--features "$(usex cranelift cranelift "") $(usex llvm llvm "") $(usex singlepass singlepass "")" \
+		--features "$(usex cranelift cranelift "") $(usex llvm llvm "") $(usex singlepass singlepass "")\
+		$(usex engine-dylib dylib "")"\
 		"$@"
 }
 

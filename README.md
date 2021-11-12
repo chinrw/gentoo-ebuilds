@@ -1,4 +1,4 @@
 # gentoo-ebuilds
-Custom Gentoo eBuild scripts that cover some missing/outdated packages.
+Custom Gentoo ebuild scripts that cover some missing/outdated ebuilds in official repo.
 
-#### Warning: the builds are not guaranteed to be stable
+#### Warning: the ebuilds in this repo are not guaranteed to be stable

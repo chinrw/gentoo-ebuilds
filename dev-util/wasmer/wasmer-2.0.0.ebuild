@@ -311,7 +311,7 @@ SLOT="0"
 IUSE="+cranelift llvm singlepass ${ALL_LLVM_TARGETS[*]}"
 
 BDEPEND="
-	>=virtual/rust-1.37.0
+	>=virtual/rust-1.53.0
 	llvm? ( ||
 		(
 			sys-devel/llvm:13[llvm_targets_X86,llvm_targets_AArch64]

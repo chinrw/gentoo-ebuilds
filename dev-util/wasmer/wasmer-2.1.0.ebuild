@@ -5,83 +5,91 @@
 EAPI=8
 
 CRATES="
-	addr2line-0.15.2
+	addr2line-0.17.0
 	adler-1.0.2
 	ahash-0.4.7
+	ahash-0.7.6
 	aho-corasick-0.7.18
-	ansi_term-0.11.0
-	anyhow-1.0.40
-	arbitrary-1.0.1
+	ansi_term-0.12.1
+	anyhow-1.0.51
+	arbitrary-1.0.3
 	arrayref-0.3.6
-	arrayvec-0.5.2
-	assert_cmd-1.0.5
+	arrayvec-0.7.2
+	assert_cmd-1.0.8
 	atty-0.2.14
 	autocfg-1.0.1
-	backtrace-0.3.60
+	backtrace-0.3.63
+	base-x-0.2.8
 	bincode-1.3.3
 	bindgen-0.56.0
 	bitflags-1.2.1
-	blake3-0.3.8
-	bstr-0.2.16
+	blake3-1.2.0
+	bstr-0.2.17
 	build-deps-0.1.4
-	bumpalo-3.7.0
+	bumpalo-3.8.0
+	bytecheck-0.6.6
+	bytecheck_derive-0.6.5
 	byteorder-1.4.3
-	bytesize-1.0.1
-	cast-0.2.6
-	cbindgen-0.18.0
-	cc-1.0.68
+	bytesize-1.1.0
+	cast-0.2.7
+	cbindgen-0.19.0
+	cc-1.0.72
 	cexpr-0.4.0
 	cfg-if-0.1.10
 	cfg-if-1.0.0
-	clang-sys-1.2.0
-	clap-2.33.3
-	cmake-0.1.45
+	clang-sys-1.3.0
+	clap-2.34.0
+	cmake-0.1.46
 	colored-1.9.3
 	colored-2.0.0
 	compiletest_rs-0.6.0
+	console_error_panic_hook-0.1.7
+	const_fn-0.4.8
 	constant_time_eq-0.1.5
-	cranelift-bforest-0.74.0
-	cranelift-codegen-0.74.0
-	cranelift-codegen-meta-0.74.0
-	cranelift-codegen-shared-0.74.0
-	cranelift-entity-0.74.0
-	cranelift-frontend-0.74.0
-	crc32fast-1.2.1
-	criterion-0.3.4
-	criterion-plot-0.4.3
+	cranelift-bforest-0.76.0
+	cranelift-codegen-0.76.0
+	cranelift-codegen-meta-0.76.0
+	cranelift-codegen-shared-0.76.0
+	cranelift-entity-0.76.0
+	cranelift-frontend-0.76.0
+	crc32fast-1.3.0
+	criterion-0.3.5
+	criterion-plot-0.4.4
 	crossbeam-channel-0.5.1
-	crossbeam-deque-0.8.0
+	crossbeam-deque-0.8.1
 	crossbeam-epoch-0.9.5
 	crossbeam-utils-0.8.5
-	crypto-mac-0.8.0
 	csv-1.1.6
 	csv-core-0.1.10
-	ctor-0.1.20
-	darling-0.12.4
-	darling_core-0.12.4
-	darling_macro-0.12.4
-	derive_arbitrary-1.0.1
+	ctor-0.1.21
+	cty-0.2.2
+	darling-0.13.0
+	darling_core-0.13.0
+	darling_macro-0.13.0
+	derive_arbitrary-1.0.2
 	diff-0.1.12
 	difference-2.0.0
+	difflib-0.4.0
 	digest-0.9.0
 	dirs-next-2.0.0
 	dirs-sys-next-0.1.2
+	discard-1.0.4
 	distance-0.4.0
 	doc-comment-0.3.3
 	downcast-rs-1.2.0
-	dynasm-1.1.0
-	dynasmrt-1.1.0
+	dynasm-1.2.0
+	dynasmrt-1.2.0
 	either-1.6.1
-	encoding_rs-0.8.28
-	enumset-1.0.6
-	enumset_derive-0.5.4
-	env_logger-0.8.3
-	erased-serde-0.3.15
+	encoding_rs-0.8.29
+	enumset-1.0.8
+	enumset_derive-0.5.5
+	env_logger-0.8.4
+	erased-serde-0.3.16
 	fallible-iterator-0.2.0
 	fern-0.6.0
 	field-offset-0.3.4
-	filetime-0.2.14
-	flate2-1.0.20
+	filetime-0.2.15
+	flate2-1.0.22
 	float-cmp-0.8.0
 	fnv-1.0.7
 	generational-arena-0.2.8
@@ -89,154 +97,176 @@ CRATES="
 	getopts-0.2.21
 	getrandom-0.2.3
 	ghost-0.1.2
-	gimli-0.24.0
+	gimli-0.25.0
+	gimli-0.26.1
 	glob-0.3.0
-	half-1.7.1
+	gumdrop-0.8.0
+	gumdrop_derive-0.8.0
+	half-1.8.2
 	hashbrown-0.9.1
+	hashbrown-0.11.2
 	heck-0.3.3
-	hermit-abi-0.1.18
+	hermit-abi-0.1.19
 	hex-0.4.3
 	humantime-2.1.0
 	ident_case-1.0.1
-	indexmap-1.6.2
-	inkwell_internals-0.3.0
+	indexmap-1.7.0
+	inkwell-0.1.0-beta.4
+	inkwell_internals-0.5.0
 	inline-c-0.1.6
 	inline-c-macro-0.1.5
-	instant-0.1.9
-	inventory-0.1.10
-	inventory-impl-0.1.10
-	itertools-0.9.0
-	itertools-0.10.0
-	itoa-0.4.7
-	js-sys-0.3.51
+	instant-0.1.12
+	inventory-0.2.0
+	itertools-0.10.1
+	itoa-0.4.8
+	js-sys-0.3.55
 	lazy_static-1.4.0
 	lazycell-1.3.0
-	leb128-0.2.4
-	libc-0.2.95
+	leb128-0.2.5
+	libc-0.2.108
 	libfuzzer-sys-0.4.2
-	libloading-0.7.0
-	llvm-sys-110.0.1
-	lock_api-0.4.4
+	libloading-0.7.2
+	llvm-sys-120.2.1
+	lock_api-0.4.5
 	log-0.4.14
-	loupe-0.1.2
-	loupe-derive-0.1.2
+	loupe-0.1.3
+	loupe-derive-0.1.3
 	mach-0.3.2
-	maybe-uninit-2.0.0
-	memchr-2.4.0
-	memmap2-0.2.3
+	matchers-0.1.0
+	memchr-2.4.1
+	memmap2-0.5.0
 	memoffset-0.6.4
 	minifb-0.19.3
+	minimal-lexical-0.2.1
 	miniz_oxide-0.4.4
 	miow-0.3.7
-	more-asserts-0.2.1
-	nix-0.20.0
+	more-asserts-0.2.2
+	nix-0.20.2
 	nom-5.1.2
-	nom-6.1.2
+	nom-7.1.0
 	normalize-line-endings-0.3.0
 	num-traits-0.2.14
 	num_cpus-1.13.0
-	object-0.25.2
-	once_cell-1.7.2
+	object-0.27.1
+	once_cell-1.8.0
 	oorandom-11.1.3
 	orbclient-0.3.31
 	output_vt100-0.1.2
-	parking_lot-0.11.1
-	parking_lot_core-0.8.3
-	paste-1.0.5
+	parking_lot-0.11.2
+	parking_lot_core-0.8.5
+	paste-1.0.6
 	peeking_take_while-0.1.2
 	pest-2.1.3
-	pin-project-lite-0.2.6
-	pkg-config-0.3.19
+	pin-project-lite-0.2.7
+	pkg-config-0.3.22
 	plotters-0.3.1
-	plotters-backend-0.3.0
-	plotters-svg-0.3.0
-	ppv-lite86-0.2.10
+	plotters-backend-0.3.2
+	plotters-svg-0.3.1
+	ppv-lite86-0.2.15
 	predicates-1.0.8
+	predicates-2.1.0
 	predicates-core-1.0.2
-	predicates-tree-1.0.2
-	pretty_assertions-0.6.1
+	predicates-tree-1.0.4
+	pretty_assertions-1.0.0
 	proc-macro-error-1.0.4
 	proc-macro-error-attr-1.0.4
-	proc-macro2-1.0.27
-	ptr_meta-0.1.3
-	ptr_meta_derive-0.1.2
-	quote-1.0.9
-	rand-0.8.3
-	rand_chacha-0.3.0
-	rand_core-0.6.2
-	rand_hc-0.3.0
-	raw-window-handle-0.3.3
+	proc-macro-hack-0.5.19
+	proc-macro2-1.0.32
+	ptr_meta-0.1.4
+	ptr_meta_derive-0.1.4
+	quote-1.0.10
+	rand-0.8.4
+	rand_chacha-0.3.1
+	rand_core-0.6.3
+	rand_hc-0.3.1
+	raw-window-handle-0.3.4
+	raw-window-handle-0.4.2
 	rayon-1.5.1
 	rayon-core-1.9.1
-	redox_syscall-0.2.8
+	redox_syscall-0.2.10
 	redox_users-0.4.0
-	ref_thread_local-0.1.0
+	ref_thread_local-0.1.1
 	regalloc-0.0.31
 	regex-1.5.4
 	regex-automata-0.1.10
 	regex-syntax-0.6.25
-	region-2.2.0
+	region-3.0.0
 	remove_dir_all-0.5.3
-	rkyv-0.6.6
-	rkyv_derive-0.6.3
-	rustc-demangle-0.1.19
+	rend-0.3.4
+	rkyv-0.7.24
+	rkyv_derive-0.7.24
+	rustc-demangle-0.1.21
 	rustc-hash-1.1.0
 	rustc_version-0.2.3
 	rustc_version-0.3.3
+	rustc_version-0.4.0
 	rustfix-0.5.1
 	rustversion-1.0.5
-	ryu-1.0.5
+	ryu-1.0.6
 	same-file-1.0.6
+	scoped-tls-1.0.0
 	scopeguard-1.1.0
 	sdl2-0.34.5
 	sdl2-sys-0.34.5
 	seahash-4.1.0
 	semver-0.9.0
 	semver-0.11.0
-	semver-1.0.3
+	semver-1.0.4
 	semver-parser-0.7.0
 	semver-parser-0.10.2
-	serde-1.0.126
+	serde-1.0.130
 	serde_bytes-0.11.5
-	serde_cbor-0.11.1
-	serde_derive-1.0.126
-	serde_json-1.0.64
+	serde_cbor-0.11.2
+	serde_derive-1.0.130
+	serde_json-1.0.72
 	serial_test-0.5.1
 	serial_test_derive-0.5.1
+	sha1-0.6.0
+	sharded-slab-0.1.4
 	shlex-0.1.1
-	smallvec-1.6.1
+	slab-0.4.5
+	smallvec-1.7.0
 	stable_deref_trait-1.2.0
+	standback-0.2.17
+	stdweb-0.4.20
+	stdweb-derive-0.5.3
+	stdweb-internal-macros-0.2.9
+	stdweb-internal-runtime-0.1.5
 	strsim-0.8.0
 	strsim-0.10.0
-	structopt-0.3.21
-	structopt-derive-0.4.14
-	subtle-2.4.0
-	syn-1.0.72
-	tar-0.4.35
+	structopt-0.3.25
+	structopt-derive-0.4.18
+	syn-1.0.82
+	tar-0.4.37
 	target-lexicon-0.11.2
-	target-lexicon-0.12.0
+	target-lexicon-0.12.2
 	tempfile-3.2.0
 	term-0.7.0
 	termcolor-1.1.2
-	test-generator-0.1.0
+	termtree-0.2.3
+	test-env-log-0.2.8
 	tester-0.9.0
 	textwrap-0.11.0
-	thiserror-1.0.25
-	thiserror-impl-1.0.25
-	time-0.1.43
+	thiserror-1.0.30
+	thiserror-impl-1.0.30
+	thread_local-1.1.3
+	time-0.2.27
+	time-macros-0.1.1
+	time-macros-impl-0.1.2
 	tinytemplate-1.2.1
 	toml-0.5.8
-	tracing-0.1.26
-	tracing-attributes-0.1.15
-	tracing-core-0.1.18
-	treeline-0.1.0
-	trybuild-1.0.42
-	typenum-1.13.0
-	typetag-0.1.7
-	typetag-impl-0.1.7
+	tracing-0.1.29
+	tracing-attributes-0.1.18
+	tracing-core-0.1.21
+	tracing-subscriber-0.3.3
+	tracing-wasm-0.2.1
+	trybuild-1.0.52
+	typenum-1.14.0
+	typetag-0.1.8
+	typetag-impl-0.1.8
 	ucd-trie-0.1.3
-	unicode-segmentation-1.7.1
-	unicode-width-0.1.8
+	unicode-segmentation-1.8.0
+	unicode-width-0.1.9
 	unicode-xid-0.2.2
 	unidiff-0.3.3
 	vec_map-0.8.2
@@ -245,58 +275,41 @@ CRATES="
 	wait-timeout-0.2.0
 	walkdir-2.3.2
 	wasi-0.10.2+wasi-snapshot-preview1
-	wasm-bindgen-0.2.74
-	wasm-bindgen-backend-0.2.74
-	wasm-bindgen-macro-0.2.74
-	wasm-bindgen-macro-support-0.2.74
-	wasm-bindgen-shared-0.2.74
+	wasm-bindgen-0.2.78
+	wasm-bindgen-backend-0.2.78
+	wasm-bindgen-futures-0.4.28
+	wasm-bindgen-macro-0.2.78
+	wasm-bindgen-macro-support-0.2.78
+	wasm-bindgen-shared-0.2.78
+	wasm-bindgen-test-0.3.28
+	wasm-bindgen-test-macro-0.3.28
 	wasm-encoder-0.4.1
 	wasm-smith-0.4.5
-	wasmer-c-api-2.0.0
-	wasmer-cache-2.0.0
-	wasmer-cli-2.0.0
-	wasmer-compiler-2.0.0
-	wasmer-compiler-cranelift-2.0.0
-	wasmer-compiler-llvm-2.0.0
-	wasmer-compiler-singlepass-2.0.0
-	wasmer-derive-2.0.0
-	wasmer-emscripten-2.0.0
-	wasmer-engine-2.0.0
-	wasmer-engine-dylib-2.0.0
-	wasmer-engine-staticlib-2.0.0
-	wasmer-engine-universal-2.0.0
-	wasmer-middlewares-2.0.0
-	wasmer-object-2.0.0
-	wasmer-types-2.0.0
-	wasmer-vm-2.0.0
-	wasmer-wasi-2.0.0
-	wasmer-wasi-experimental-io-devices-2.0.0
-	wasmer-wasi-types-2.0.0
-	wasmer-wast-2.0.0
-	wasmer_inkwell-0.2.0-alpha.2
 	wasmparser-0.78.2
-	wasmprinter-0.2.26
-	wast-35.0.2
-	wat-1.0.37
-	wayland-client-0.28.5
-	wayland-commons-0.28.5
-	wayland-cursor-0.28.5
-	wayland-protocols-0.28.5
-	wayland-scanner-0.28.5
-	wayland-sys-0.28.5
-	web-sys-0.3.51
+	wasmparser-0.81.0
+	wasmprinter-0.2.31
+	wast-24.0.0
+	wast-38.0.1
+	wat-1.0.40
+	wayland-client-0.28.6
+	wayland-commons-0.28.6
+	wayland-cursor-0.28.6
+	wayland-protocols-0.28.6
+	wayland-scanner-0.28.6
+	wayland-sys-0.28.6
+	web-sys-0.3.55
 	which-3.1.1
-	which-4.1.0
+	which-4.2.2
 	winapi-0.3.9
 	winapi-i686-pc-windows-gnu-0.4.0
 	winapi-util-0.1.5
 	winapi-x86_64-pc-windows-gnu-0.4.0
-	x11-dl-2.18.5
+	x11-dl-2.19.1
 	xattr-0.2.2
-	xcursor-0.3.3
+	xcursor-0.3.4
 	xkb-0.2.1
 	xkbcommon-sys-0.7.5
-	xml-rs-0.8.3
+	xml-rs-0.8.4
 "
 
 inherit cargo
@@ -311,7 +324,7 @@ SLOT="0"
 IUSE="+cranelift engine-dylib llvm singlepass ${ALL_LLVM_TARGETS[*]}"
 
 BDEPEND="
-	>=virtual/rust-1.53.0
+	>=virtual/rust-1.56.0
 	llvm? ( ||
 		(
 			sys-devel/llvm:13[llvm_targets_X86,llvm_targets_AArch64]

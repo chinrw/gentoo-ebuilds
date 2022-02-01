@@ -16,9 +16,13 @@ KEYWORDS="~amd64"
 SLOT="0"
 IUSE="test"
 
+src_prepare() {
+	git checkout ${PV} || die
+	cmake_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs
-	git checkout ${PV} || die
 	if ! use test; then
 		mycmakeargs=(
 			-DBUILD_TESTS="OFF"

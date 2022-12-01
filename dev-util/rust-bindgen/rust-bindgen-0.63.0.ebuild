@@ -9,7 +9,8 @@ CRATES="
 	ansi_term-0.12.1
 	atty-0.2.14
 	autocfg-1.1.0
-	bindgen-0.61.0
+	bindgen-0.63.0
+	bindgen-cli-0.63.0
 	bitflags-1.3.2
 	block-0.1.6
 	cc-1.0.73

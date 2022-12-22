@@ -27,6 +27,11 @@ add a boot parameter `rd.timeout=30` to grub.
 and There you can manually mount degraded:
 `mount -o subvol=root,degraded /dev/sdXY /sysroot; exit`
 
+##### mdadm conf
+```
+mdadm --detail --scan >> /etc/mdadm.conf
+```
+
 ##### dracut 
 ```
 # PUT YOUR CONFIG IN separate files
